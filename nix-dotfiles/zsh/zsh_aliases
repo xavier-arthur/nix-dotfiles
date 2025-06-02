@@ -40,5 +40,6 @@ alias scl='systemctl'
 alias cat='bat'
 alias grep='rg'
 alias monitor_dconf='dconf watch && dconf dump && gsettings list-recursively'
+alias ls='eza'
 
 alias update='sudo nixos-rebuild switch'

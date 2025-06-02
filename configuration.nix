@@ -18,11 +18,6 @@ in {
     boot.loader.grub.useOSProber = true;
 
     networking.hostName = "nixos"; # Define your hostname.
-    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-    # Configure network proxy if necessary
-    # networking.proxy.default = "http://user:password@proxy:port/";
-    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
     # Enable networking
     networking.networkmanager.enable = true;
@@ -168,7 +163,6 @@ in {
         pkgs.git
         pkgs.wget
         pkgs.flameshot
-        pkgs.alacritty
         pkgs.dbeaver-bin
         pkgs.prismlauncher
         pkgs.gcc
@@ -180,6 +174,9 @@ in {
         pkgs.freshfetch
         pkgs.dconf
         pkgs.discord
+
+    	pkgs.alacritty
+    	pkgs.eza
 
         # rust
         pkgs.rustc
@@ -213,9 +210,6 @@ in {
         programs.zsh.enable = true;
         programs.bash.enable = true;
         targets.genericLinux.enable = true;
-
-        xdg.mime.enable = true;
-        xdg.systemDirs.data = [ "/home/arthurx/.nix-profile/share/applications" ];
 
         programs.git = {
             enable = true;
