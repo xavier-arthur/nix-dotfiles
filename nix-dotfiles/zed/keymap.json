@@ -52,5 +52,19 @@
     "bindings": {
       "ctrl-<": "workspace::ToggleBottomDock"
     }
-  }
+  },
+
+  {
+    "context": "Editor || GitPanel || ProjectPanel",
+    "bindings": {
+      "ctrl-g": "workspace::ToggleLeftDock"
+    }
+  },
+
+  {
+    "context": "Editor || GitPanel || ProjectPanel",
+    "bindings": {
+      "ctrl-b": "workspace::ToggleRightDock"
+    }
+  },
 ]

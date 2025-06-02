@@ -7,12 +7,16 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+    "icon_theme": "Warm Charmed Icons",
+    "project_panel": {
+        "dock": "right"
+    },
     "ui_font_size": 15,
     "buffer_font_size": 12,
     "theme": {
         "mode": "system",
         "light": "One Light",
-        "dark": "Gruvbox Dark Soft"
+        "dark": "Gruvbox Material"
     },
 
     "vim_mode": true,
@@ -28,5 +32,50 @@
         "Nix": {
             "enable_language_server": true
         }
+    },
+
+    "experimental.theme_overrides": {
+        "hint": "#665c54",
+        "hint.background": "#252523",
+        // "hint.border": null,
+
+        "syntax": {
+            "keyword": {
+                "color": "#ea6962"
+            },
+
+            "function": {
+                "color": "#a9b665"
+            },
+
+            "type": {
+                "color": "#7daea3"
+            },
+
+            "operator": {
+                "color": "#e78a4e"
+            },
+
+            "number": {
+                "color": "#d3869b"
+            },
+
+            "variable": {
+                "color": "#d4be98"
+            },
+
+            "constructor": {
+                "color": "#89b482"
+            },
+
+            "string": {
+                "color": "#d8a657"
+            }
+        },
+    },
+
+    "inlay_hints": {
+        "enabled": true,
+        "show_background": true
     }
 }

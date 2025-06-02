@@ -2,7 +2,6 @@
 
 let
     dotfiles = /home/arthurx/.config/home-manager/nix-dotfiles;
-    dotconf = /home/arthurx/.config;
 in {
     nixpkgs.config.allowUnfree = true;
 
@@ -47,6 +46,9 @@ in {
 
         # wallpaper gnome
         ".config/background".source = "${dotfiles}/background";
+
+        ".config/zed/settings.json".source = "${dotfiles}/zed/settings.json";
+        ".config/zed/keymap.json".source = "${dotfiles}/zed/keymap.json";
 
         # # You can also set the file content immediately.
         # ".gradle/gradle.properties".text = ''
