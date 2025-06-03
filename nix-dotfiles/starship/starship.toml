@@ -53,3 +53,8 @@ style = "fg:#d3869b"  # purple
 [memory_usage]
 symbol = "memory "
 style = "fg:#e78a4e"  # orange
+
+[username]
+style_user = "fg:#a9b665"
+show_always = true
+format = "[$user](fg:#a9b665) at "

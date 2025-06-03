@@ -155,6 +155,10 @@ in {
             enable = true;
             userEmail = "garok102gmail.com";
             userName = "Arthur Xavier";
+
+            extraConfig = {
+                credential.helper = "";
+            };
         };
 
         programs.starship = {
