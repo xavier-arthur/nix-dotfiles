@@ -1,4 +1,29 @@
 # Created by newuser for 5.9
 source "$HOME/.zsh_aliases"
 
+source <(fzf --zsh)
+
+zed() { zeditor "$@" }
+
+fr() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: fzf-run <command> [args...]"
+    return 1
+  fi
+
+  local cmd=$1
+  shift
+
+  # Run fzf, if it returns something, run the command with that
+  local selection
+  selection=$(fzf)
+
+  [ -n "$selection" ] && "$cmd" "$@" "$selection"
+}
+
+
+export EDITOR="nvim";
+export FZF_DEFAULT_COMMAND="fd . . --exclude '.*' --maxdepth=10";
+export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range=:500 {}" --delimiter / --nth -1'
+
 bindkey -v

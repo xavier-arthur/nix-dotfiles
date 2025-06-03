@@ -173,6 +173,7 @@ in {
         pkgs.bash
         pkgs.obs-studio
         pkgs.fontforge-gtk
+        pkgs.fd
 
         pkgs.megasync
 
@@ -277,7 +278,6 @@ in {
         };
 
         home.sessionVariables = {
-            EDITOR = "nvim";
         };
 
         # Let Home Manager install and manage itself.
