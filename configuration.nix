@@ -108,6 +108,8 @@ in {
         enable = true;
         enableCompletion = true;
 
+        promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+
         # autosuggestions = {
         #     enable = true;
         #     highlightStyle = "fg=#d79921,bg=#1d2021,bold,underline";
@@ -123,7 +125,7 @@ in {
 
         ohMyZsh = {
             enable = true;
-            theme = "afowler";
+            # theme = "afowler";
         };
     };
 
@@ -156,7 +158,10 @@ in {
         pkgs.python3
         pkgs.ripgrep
         pkgs.bat
+
         pkgs.zsh
+        pkgs.zsh-powerlevel10k
+
         pkgs.curl
         pkgs.ctop
         pkgs.docker
@@ -232,6 +237,7 @@ in {
             # zsh
             ".zshrc".source = "${dotfiles}/zsh/zshrc";
             ".zsh_aliases".source = "${dotfiles}/zsh/zsh_aliases";
+            ".p10k".source = "${dotfiles}/zsh/p10k.zsh";
 
             # wallpaper gnome
             ".config/background".source = "${dotfiles}/background";
@@ -243,6 +249,10 @@ in {
             # fontes
             ".local/share/fonts/PixelCodeLigatureLessRegular.otf".source = "${dotfiles}/fonts/PixelCodeLigatureLess-Regular.otf";
             ".local/share/fonts/PixelCodeLigatureLessRegularItalic.otf".source = "${dotfiles}/fonts/PixelCodeLigatureLess-RegularItalic.otf";
+
+            # alacritty
+            ".config/alacritty.toml".source = "${dotfiles}/alacritty/alacritty.toml";
+
             # # You can also set the file content immediately.
             # ".gradle/gradle.properties".text = ''
             #   org.gradle.console=verbose

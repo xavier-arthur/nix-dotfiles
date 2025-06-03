@@ -1,5 +1,6 @@
 # Created by newuser for 5.9
 source "$HOME/.zsh_aliases"
+source "$HOME/.p10k"
 
 source <(fzf --zsh)
 

@@ -48,28 +48,28 @@
   },
 
   {
-    "context": "Editor || Terminal",
+    "context": "Editor || Workspace || Terminal",
     "bindings": {
       "ctrl-<": "workspace::ToggleBottomDock"
     }
   },
 
   {
-    "context": "Editor || GitPanel || ProjectPanel",
+    "context": "Editor || Workspace || GitPanel || ProjectPanel",
     "bindings": {
       "ctrl-g": "workspace::ToggleLeftDock"
     }
   },
 
   {
-    "context": "Editor || GitPanel || ProjectPanel",
+    "context": "Editor || Workspace || GitPanel || ProjectPanel",
     "bindings": {
       "ctrl-b": "workspace::ToggleRightDock"
     }
   },
 
   {
-    "context": "Editor && vim_mode == normal",
+    "context": "Editor || Workspace && vim_mode == normal",
     "bindings": {
       "ctrl-?": "editor::GoToDefinition"
     }
