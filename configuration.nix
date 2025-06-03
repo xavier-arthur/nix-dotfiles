@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
     dotfiles = /home/arthurx/.config/home-manager/nix-dotfiles;
@@ -143,7 +143,7 @@ in {
     ];
 
 
-    home-manager.users.arthurx = {
+    home-manager.users.arthurx = {config, pkgs, ...}: {
         nixpkgs.config.allowUnfree = true;
 
         home.username = "arthurx";
@@ -157,6 +157,34 @@ in {
             enable = true;
             userEmail = "garok102gmail.com";
             userName = "Arthur Xavier";
+        };
+
+        programs.rofi = {
+            enable = true;
+
+            terminal = "${pkgs.alacritty}/bin/alacritty";
+            location = "center";
+
+            theme = "${dotfiles}/rofi/gruvbox-material.rasi";
+
+            modes = [
+                "window"
+                "run"
+                "ssh"
+                "drun"
+                "combi"
+                "keys"
+                "filebrowser"
+                "calc"
+                "emoji"
+            ];
+
+            plugins = [
+                pkgs.rofi-calc
+                pkgs.rofi-emoji
+            ];
+
+            font = "${pkgs.pixel-code}/otf/PixelCode.otf";
         };
 
         # os pacotes instalados aqui nao parecem ter uma boa integracao com
@@ -182,6 +210,8 @@ in {
 
             # alacritty
             ".config/alacritty.toml".source = "${dotfiles}/alacritty/alacritty.toml";
+
+            "settings".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager";
         };
 
         dconf.settings = {

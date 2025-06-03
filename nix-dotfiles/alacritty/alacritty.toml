@@ -1,5 +1,8 @@
 # Gruvbox Material Medium Dark
-#
+
+[window]
+decorations = "none"
+
 [font]
 normal = { family = "IBM Plex Mono", style = "Regular"}
 

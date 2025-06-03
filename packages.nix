@@ -39,6 +39,9 @@
         pkgs.curl
         pkgs.wget
         pkgs.rsync
+        pkgs.tmux
+        pkgs.xclip
+        pkgs.file
 
         # === Zsh ===
         pkgs.zsh
@@ -48,6 +51,7 @@
         pkgs.zsh-powerlevel10k
 
         # === GUI Apps ===
+        pkgs.gimp3
         pkgs.brave
         pkgs.postman
         pkgs.dbeaver-bin
