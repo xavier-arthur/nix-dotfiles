@@ -8,7 +8,7 @@ zed() { zeditor "$@" }
 
 fr() {
   if [ $# -eq 0 ]; then
-    echo "Usage: fzf-run <command> [args...]"
+    echo "Usage: fr <command> [args...]"
     return 1
   fi
 
@@ -25,6 +25,6 @@ fr() {
 
 export EDITOR="nvim";
 export FZF_DEFAULT_COMMAND="fd . . --exclude '.*' --maxdepth=10";
-export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range=:500 {}" --delimiter / --nth -1'
+export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range=:500 {}" --delimiter /'
 
 bindkey -v

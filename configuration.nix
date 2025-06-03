@@ -9,6 +9,7 @@ let
 in {
     imports = [
         /etc/nixos/hardware-configuration.nix
+        ./packages.nix
         <home-manager/nixos>
     ];
 
@@ -141,79 +142,6 @@ in {
         pkgs.ibm-plex
     ];
 
-    # pacotes
-    environment.systemPackages = [
-        pkgs.lutris-unwrapped
-        pkgs.pv
-        pkgs.rsync
-        pkgs.mariadb
-        pkgs.postman
-        pkgs.home-manager
-        pkgs.oh-my-zsh
-        pkgs.zsh-autocomplete
-        pkgs.zsh-autosuggestions
-        pkgs.neovim
-        pkgs.brave
-        pkgs.nodejs_24
-        pkgs.python3
-        pkgs.ripgrep
-        pkgs.bat
-
-        pkgs.zsh
-        pkgs.zsh-powerlevel10k
-
-        pkgs.gitui
-
-        pkgs.curl
-        pkgs.ctop
-        pkgs.docker
-        pkgs.steam
-        pkgs.git
-        pkgs.wget
-        pkgs.flameshot
-        pkgs.dbeaver-bin
-        pkgs.prismlauncher
-        pkgs.gcc
-        pkgs.yt-dlp
-        pkgs.qbittorrent
-        pkgs.gruvbox-gtk-theme
-        pkgs.bash
-        pkgs.obs-studio
-        pkgs.fontforge-gtk
-        pkgs.fd
-
-        pkgs.megasync
-
-        pkgs.freshfetch
-        pkgs.dconf
-        pkgs.discord
-        pkgs.fzf
-
-    	pkgs.alacritty
-    	pkgs.eza
-
-        # rust
-        pkgs.rustc
-        pkgs.cargo
-        pkgs.rust-analyzer
-
-        #php
-        pkgs.intelephense
-        pkgs.php84
-        pkgs.php84Packages.composer
-
-        # dev
-        pkgs.zed-editor
-
-        # nix language servers
-        pkgs.nixd
-        pkgs.nil
-
-        pkgs.gnome-tweaks
-
-        pkgs.gnomeExtensions.rounded-corners
-        pkgs.gnomeExtensions.blur-my-shell
-    ];
 
     home-manager.users.arthurx = {
         nixpkgs.config.allowUnfree = true;
@@ -254,15 +182,16 @@ in {
 
             # alacritty
             ".config/alacritty.toml".source = "${dotfiles}/alacritty/alacritty.toml";
-
-            # # You can also set the file content immediately.
-            # ".gradle/gradle.properties".text = ''
-            #   org.gradle.console=verbose
-            #   org.gradle.daemon.idletimeout=3600000
-            # '';
         };
 
         dconf.settings = {
+
+            "org/gnome/desktop/wm/keybindings" = {
+                "show-desktop" = ["<Super>D"];
+                "move-to-monitor-left" = ["<Super><Shift>H"];
+                "move-to-monitor-right" = ["<Super><Shift>L"];
+            };
+
             "org/gnome/settings-daemon/plugins/media-keys" = {
                 custom-keybindings = [
                     "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
