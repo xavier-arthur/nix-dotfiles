@@ -1,6 +1,6 @@
 # Created by newuser for 5.9
 source "$HOME/.zsh_aliases"
-source "$HOME/.p10k"
+eval "$(starship init zsh)"
 
 source <(fzf --zsh)
 
@@ -21,7 +21,6 @@ fr() {
 
   [ -n "$selection" ] && "$cmd" "$@" "$selection"
 }
-
 
 export EDITOR="nvim";
 export FZF_DEFAULT_COMMAND="fd . . --exclude '.*' --maxdepth=10";

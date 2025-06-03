@@ -48,7 +48,6 @@
         pkgs.oh-my-zsh
         pkgs.zsh-autocomplete
         pkgs.zsh-autosuggestions
-        pkgs.zsh-powerlevel10k
 
         # === GUI Apps ===
         pkgs.gimp3

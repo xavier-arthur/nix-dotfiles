@@ -109,8 +109,6 @@ in {
         enable = true;
         enableCompletion = true;
 
-        promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-
         # autosuggestions = {
         #     enable = true;
         #     highlightStyle = "fg=#d79921,bg=#1d2021,bold,underline";
@@ -159,6 +157,11 @@ in {
             userName = "Arthur Xavier";
         };
 
+        programs.starship = {
+            enable = true;
+            enableZshIntegration = true;
+        };
+
         programs.rofi = {
             enable = true;
 
@@ -195,7 +198,6 @@ in {
             # zsh
             ".zshrc".source = "${dotfiles}/zsh/zshrc";
             ".zsh_aliases".source = "${dotfiles}/zsh/zsh_aliases";
-            ".p10k".source = "${dotfiles}/zsh/p10k.zsh";
 
             # wallpaper gnome
             ".config/background".source = "${dotfiles}/background";
@@ -210,6 +212,9 @@ in {
 
             # alacritty
             ".config/alacritty.toml".source = "${dotfiles}/alacritty/alacritty.toml";
+
+            # starship
+            ".config/starship.toml".source = "${dotfiles}/starship/starship.toml";
 
             "settings".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager";
         };

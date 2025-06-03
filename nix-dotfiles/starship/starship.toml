@@ -1,0 +1,55 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+[character]
+success_symbol = "[>](bold fg:#a9b665)"  # green
+error_symbol = "[>](bold fg:#ea6962)"    # red
+vimcmd_symbol = "[<](bold fg:#7daea3)"   # blue
+
+[directory]
+style = "bold fg:#d8a657"  # yellow
+read_only = " ro"
+home_symbol = "/home/arthurx"
+
+[git_branch]
+symbol = "git "
+style = "bold fg:#7daea3"  # blue
+
+[git_status]
+style = "fg:#e78a4e"  # orange
+ahead = ">"
+behind = "<"
+diverged = "<>"
+renamed = "r"
+deleted = "x"
+
+[status]
+symbol = "[x](bold fg:#ea6962)"  # red
+style = "fg:#ea6962"
+
+[package]
+symbol = "pkg "
+style = "fg:#d3869b"  # purple
+
+[nodejs]
+symbol = "nodejs "
+style = "fg:#a9b665"  # green
+
+[rust]
+symbol = "rs "
+style = "fg:#ea6962"  # red
+
+[python]
+symbol = "py "
+style = "fg:#d8a657"  # yellow
+
+[terraform]
+symbol = "terraform "
+style = "fg:#7daea3"  # blue
+
+[sudo]
+symbol = "sudo "
+style = "fg:#d3869b"  # purple
+
+[memory_usage]
+symbol = "memory "
+style = "fg:#e78a4e"  # orange

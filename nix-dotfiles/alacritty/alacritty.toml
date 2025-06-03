@@ -2,9 +2,10 @@
 
 [window]
 decorations = "none"
+padding = { x = 7, y = 2 }
 
 [font]
-normal = { family = "IBM Plex Mono", style = "Regular"}
+normal = { family = "IBM Plex Mono", style = "Regular" }
 
 [colors.primary]
 background = '#282828'
