@@ -162,6 +162,8 @@ in {
         pkgs.zsh
         pkgs.zsh-powerlevel10k
 
+        pkgs.gitui
+
         pkgs.curl
         pkgs.ctop
         pkgs.docker
