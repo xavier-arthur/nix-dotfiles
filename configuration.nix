@@ -113,6 +113,7 @@ in {
         #     highlightStyle = "fg=#d79921,bg=#1d2021,bold,underline";
         #     strategy = ["completion"];
         # };
+        #
 
         syntaxHighlighting = {
             enable = true;
@@ -134,7 +135,7 @@ in {
     nixpkgs.config.allowUnfree = true;
 
     fonts.packages = [
-        pkgs.pixel-code
+        # pkgs.pixel-code
         pkgs.ibm-plex
     ];
 
@@ -170,10 +171,15 @@ in {
         pkgs.qbittorrent
         pkgs.gruvbox-gtk-theme
         pkgs.bash
+        pkgs.obs-studio
+        pkgs.fontforge-gtk
+
+        pkgs.megasync
 
         pkgs.freshfetch
         pkgs.dconf
         pkgs.discord
+        pkgs.fzf
 
     	pkgs.alacritty
     	pkgs.eza
@@ -229,9 +235,13 @@ in {
             # wallpaper gnome
             ".config/background".source = "${dotfiles}/background";
 
+            # zed
             ".config/zed/settings.json".source = "${dotfiles}/zed/settings.json";
             ".config/zed/keymap.json".source = "${dotfiles}/zed/keymap.json";
 
+            # fontes
+            ".local/share/fonts/PixelCodeLigatureLessRegular.otf".source = "${dotfiles}/fonts/PixelCodeLigatureLess-Regular.otf";
+            ".local/share/fonts/PixelCodeLigatureLessRegularItalic.otf".source = "${dotfiles}/fonts/PixelCodeLigatureLess-RegularItalic.otf";
             # # You can also set the file content immediately.
             # ".gradle/gradle.properties".text = ''
             #   org.gradle.console=verbose
@@ -278,6 +288,12 @@ in {
     };
 
     environment.etc."mariadb".source = "${pkgs.mariadb}/bin";
+
+    # coloca um link simbolico do bash em /bin/bash
+    system.activationScripts.text = ''
+        ln -sf ${pkgs.bash}/bin/bash /bin/bash
+        ln -sf ${pkgs.bash}/bin/bash /usr/bin/bash
+    '';
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.

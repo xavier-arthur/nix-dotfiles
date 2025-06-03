@@ -31,6 +31,15 @@
     "languages": {
         "Nix": {
             "enable_language_server": true
+        },
+
+        "YAML": {
+            "tab_size": 2
+        },
+
+        "PHP": {
+            "enable_language_server": true,
+            "language_servers": ["intelephense", "!phpactor"]
         }
     },
 
@@ -41,7 +50,8 @@
 
         "syntax": {
             "keyword": {
-                "color": "#ea6962"
+                "color": "#ea6962",
+                "font_style": "italic"
             },
 
             "function": {
@@ -65,11 +75,15 @@
             },
 
             "constructor": {
-                "color": "#89b482"
+                "color": "#7daea3"
             },
 
             "string": {
                 "color": "#d8a657"
+            },
+
+            "boolean": {
+                "color": "#d3869b"
             }
         },
     },

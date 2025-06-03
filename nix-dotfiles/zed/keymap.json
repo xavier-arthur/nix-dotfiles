@@ -67,4 +67,11 @@
       "ctrl-b": "workspace::ToggleRightDock"
     }
   },
+
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "ctrl-?": "editor::GoToDefinition"
+    }
+  },
 ]
