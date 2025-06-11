@@ -5,7 +5,7 @@
 { config, pkgs, lib, ... }:
 
 let
-    dotfiles = /home/arthurx/.config/home-manager/nix-dotfiles;
+    dotfiles = /home/arthurx/.config/dotfiles/nix;
 in {
     imports = [
         /etc/nixos/hardware-configuration.nix
@@ -57,8 +57,6 @@ in {
 
     # Enable CUPS to print documents.
     services.printing.enable = true;
-
-    home-manager.backupFileExtension = "backup";
 
     # Enable sound with pipewire.
     services.pulseaudio.enable = false;
@@ -140,7 +138,6 @@ in {
         pkgs.ibm-plex
     ];
 
-
     home-manager.users.arthurx = {config, pkgs, ...}: {
         nixpkgs.config.allowUnfree = true;
 
@@ -220,7 +217,7 @@ in {
             # starship
             ".config/starship.toml".source = "${dotfiles}/starship/starship.toml";
 
-            "settings".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager";
+            "settings".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles";
         };
 
         dconf.settings = {
@@ -260,9 +257,6 @@ in {
         home.sessionVariables = {
         };
 
-        # Let Home Manager install and manage itself.
-        programs.home-manager.enable = true;
-
         ## DO NOT CHANGE DO NOT CHANGE
         home.stateVersion = "24.11"; # Please read the comment before changing.
     };
@@ -286,7 +280,7 @@ in {
     # List services that you want to enable:
 
     # Enable the OpenSSH daemon.
-    # services.openssh.enable = true;
+    services.openssh.enable = true;
 
     # Open ports in the firewall.
     # networking.firewall.allowedTCPPorts = [ ... ];

@@ -2,7 +2,7 @@
 
 [window]
 decorations = "none"
-padding = { x = 7, y = 0 }
+padding = { x = 7, y = 5 }
 
 [font]
 normal = { family = "IBM Plex Mono", style = "Regular" }

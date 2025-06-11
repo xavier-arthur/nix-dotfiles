@@ -25,7 +25,7 @@
     "format_on_save": "off",
 
     "ui_font_family": "IBM Plex Mono",
-    "buffer_font_family": "Pixel Code",
+    "buffer_font_family": "PixelCodeLigatureless Nerd Font",
     "tab_size": 4,
 
     "languages": {
@@ -52,6 +52,14 @@
             "keyword": {
                 "color": "#ea6962",
                 "font_style": "italic"
+            },
+
+            "property": {
+                "color": "#d4be98"
+            },
+
+            "tag": {
+                "color": "#ea6962",
             },
 
             "function": {
@@ -89,7 +97,14 @@
     },
 
     "inlay_hints": {
-        "enabled": true,
-        "show_background": true
-    }
+        "enabled": false,
+        "show_background": true,
+        "show_parameter_hints": false,
+        "show_other_hints": false,
+        "toggle_on_modifiers_press": {
+            "alt": true
+        }
+    },
+
+    "ensure_final_newline_on_save": false
 }

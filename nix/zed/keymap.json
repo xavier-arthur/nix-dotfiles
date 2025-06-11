@@ -74,4 +74,13 @@
       "ctrl-?": "editor::GoToDefinition"
     }
   },
+
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "shift-a": "editor::SplitSelectionIntoLines",
+    }
+  }
+
+
 ]

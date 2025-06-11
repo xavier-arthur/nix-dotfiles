@@ -9,6 +9,7 @@
         pkgs.gitui
         pkgs.gcc
         pkgs.zed-editor
+    	pkgs.gnumake
 
         # === Python ===
         pkgs.python3
@@ -42,6 +43,7 @@
         pkgs.tmux
         pkgs.xclip
         pkgs.file
+    	pkgs.jq
 
         # === Zsh ===
         pkgs.zsh
@@ -60,6 +62,9 @@
         pkgs.qbittorrent
         pkgs.megasync
         pkgs.fontforge-gtk
+        pkgs.vlc
+        pkgs.cozy
+        pkgs.onlyoffice-desktopeditors
 
         # === Gaming ===
         pkgs.lutris-unwrapped
@@ -80,6 +85,7 @@
 
         # === Database ===
         pkgs.mariadb
+        pkgs.mariadb-embedded
 
         # === Home Manager ===
         pkgs.home-manager

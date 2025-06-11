@@ -1,12 +1,19 @@
-# Created by newuser for 5.9
+# alias
 source "$HOME/.zsh_aliases"
+
+# prompt
 eval "$(starship init zsh)"
 
+# ssh agent
+eval "$(ssh-agent -s)" > /dev/null 2>&1
+ssh-add  "$HOME/.ssh/id_ed25519" > /dev/null 2>&1
+
+# fzf
 source <(fzf --zsh)
 
-zed() { zeditor "$@" }
+function zed() { zeditor "$@" }
 
-fr() {
+function fr() {
   if [ $# -eq 0 ]; then
     echo "Usage: fr <command> [args...]"
     return 1
@@ -26,4 +33,5 @@ export EDITOR="nvim";
 export FZF_DEFAULT_COMMAND="fd . . --exclude '.*' --maxdepth=10";
 export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range=:500 {}" --delimiter /'
 
+# vim mode
 bindkey -v
