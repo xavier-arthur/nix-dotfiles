@@ -80,7 +80,12 @@
     "bindings": {
       "shift-a": "editor::SplitSelectionIntoLines",
     }
+  },
+
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+        "ctrl-\\": "projects::OpenRecent"
+    }
   }
-
-
 ]

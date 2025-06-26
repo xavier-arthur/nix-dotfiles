@@ -29,9 +29,39 @@ function fr() {
   [ -n "$selection" ] && "$cmd" "$@" "$selection"
 }
 
+# takes a video and turns it into a codec that whatsapp accepts
+function whatsappify() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: whatsappify <input_video>"
+    return 1
+  fi
+
+  input="$1"
+  filename="${input%.*}"
+  output="${filename}_whatsapp.mp4"
+
+  ffmpeg -i "$input" \
+    -vf "scale=w=640:h=trunc(ow/a/2)*2" \
+    -c:v libx264 -preset fast -crf 28 \
+    -c:a aac -b:a 96k -movflags +faststart \
+    -max_muxing_queue_size 1024 \
+    "$output"
+
+  echo "Converted video saved as: $output"
+}
+
 export EDITOR="nvim";
 export FZF_DEFAULT_COMMAND="fd . . --exclude '.*' --maxdepth=10";
 export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range=:500 {}" --delimiter /'
+export NIXPKGS_ALLOW_UNFREE=1
 
 # vim mode
 bindkey -v
+
+if [[ -z "$TMUX" ]]; then
+  if tmux ls &>/dev/null; then
+    exec tmux attach-session
+  else
+    exec tmux new -s Default
+  fi
+fi

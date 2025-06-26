@@ -16,7 +16,8 @@
     "theme": {
         "mode": "system",
         "light": "One Light",
-        "dark": "Gruvbox Material"
+        "dark": "One Dark Pro"
+        // "dark": "Gruvbox Material"
     },
 
     "vim_mode": true,
@@ -40,6 +41,14 @@
         "PHP": {
             "enable_language_server": true,
             "language_servers": ["intelephense", "!phpactor"]
+        },
+
+        "Vue.js": {
+            "use_autoclose": true
+        },
+
+        "Shell Script": {
+            "tab_size": 2
         }
     },
 
@@ -50,50 +59,65 @@
 
         "syntax": {
             "keyword": {
-                "color": "#ea6962",
+                "color": "#E67E80",
                 "font_style": "italic"
             },
 
-            "property": {
-                "color": "#d4be98"
-            },
-
             "tag": {
-                "color": "#ea6962",
+                "color": "#E69875",
             },
 
-            "function": {
-                "color": "#a9b665"
-            },
-
-            "type": {
-                "color": "#7daea3"
-            },
-
-            "operator": {
-                "color": "#e78a4e"
-            },
-
-            "number": {
-                "color": "#d3869b"
-            },
-
-            "variable": {
-                "color": "#d4be98"
-            },
-
-            "constructor": {
-                "color": "#7daea3"
-            },
-
-            "string": {
-                "color": "#d8a657"
-            },
-
-            "boolean": {
-                "color": "#d3869b"
-            }
+            "variable":  { "color": "#D3C6AA" },
+            "attribute":  { "color": "#D3C6AA" },
+            "property": { "color": "#83C092" },
         },
+
+        // "syntax": {
+        //     "keyword": {
+        //         "color": "#ea6962",
+        //         "font_style": "italic"
+        //     },
+
+        //     "property": {
+        //         "color": "#d4be98"
+        //     },
+
+        //     "tag": {
+        //         "color": "#ea6962",
+        //     },
+
+        //     "function": {
+        //         "color": "#a9b665"
+        //     },
+
+        //     "type": {
+        //         "color": "#7daea3"
+        //     },
+
+        //     "operator": {
+        //         "color": "#e78a4e"
+        //     },
+
+        //     "number": {
+        //         "color": "#d3869b"
+        //     },
+
+        //     "variable": {
+        //         "color": "#d4be98"
+        //     },
+
+        //     "constructor": {
+        //         "color": "#7daea3"
+        //     },
+
+        //     "string": {
+        //         "color": "#d8a657"
+        //     },
+
+        //     "boolean": {
+        //         "color": "#d3869b"
+        //     }
+        // },
     },
 
     "inlay_hints": {

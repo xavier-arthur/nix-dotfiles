@@ -54,6 +54,10 @@ style = "fg:#7daea3"  # blue
 symbol = "PHP "
 style = "fg:#d3869b"  # purple
 
+[lua]
+symbol = "lua "
+style = "fg:#7daea3"  # blue
+
 [bun]
 symbol = "bun "
 style = "fg:#e78a4e"  # purple

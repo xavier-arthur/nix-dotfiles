@@ -1,15 +1,24 @@
 { config, pkgs, ... }:
-{
+
+let
+    unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+in {
     # pacotes
     environment.systemPackages = [
+        # === fonts === In my experience some fonts need to be added to the
+        # system packages as well as in fonts.packages, dunno why so I just add
+        # them fonts here and in the aforementioned property
+        pkgs.kode-mono
+
         # === Development Tools ===
         pkgs.neovim
         pkgs.nodejs_24
         pkgs.git
         pkgs.gitui
         pkgs.gcc
-        pkgs.zed-editor
     	pkgs.gnumake
+        pkgs.redisinsight
+        unstable.zed-editor # unstable
 
         # === Python ===
         pkgs.python3
@@ -29,7 +38,7 @@
         pkgs.nixd
         pkgs.nil
 
-        # === Terminal Tools ===
+        # === Terminal/CLI Tools ===
         pkgs.alacritty
         pkgs.eza
         pkgs.fzf
@@ -44,6 +53,13 @@
         pkgs.xclip
         pkgs.file
     	pkgs.jq
+        pkgs.yt-dlp
+        pkgs.ffmpeg
+        pkgs.imagemagick
+        pkgs.killall
+        pkgs.cowsay
+        pkgs.lolcat
+        pkgs.wmctrl
 
         # === Zsh ===
         pkgs.zsh

@@ -5,7 +5,7 @@ decorations = "none"
 padding = { x = 7, y = 5 }
 
 [font]
-normal = { family = "IBM Plex Mono", style = "Regular" }
+normal = { family = "Kode Mono", style = "Regular" }
 
 [colors.primary]
 # background = '#282828'

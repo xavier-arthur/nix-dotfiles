@@ -13,11 +13,6 @@ in {
         <home-manager/nixos>
     ];
 
-    # Bootloader.
-    boot.loader.grub.enable = true;
-    boot.loader.grub.device = "/dev/sdb";
-    boot.loader.grub.useOSProber = true;
-
     networking.hostName = "nixos"; # Define your hostname.
 
     # Enable networking
@@ -126,6 +121,15 @@ in {
         };
     };
 
+    programs.tmux = {
+        package = pkgs.tmux;
+        enable = true;
+
+        plugins = [
+            pkgs.tmuxPlugins.gruvbox
+        ];
+    };
+
     security.sudo.wheelNeedsPassword = false;
 
     environment.pathsToLink = [ "/share/zsh" ];
@@ -134,8 +138,8 @@ in {
     nixpkgs.config.allowUnfree = true;
 
     fonts.packages = [
-        # pkgs.pixel-code
         pkgs.ibm-plex
+        pkgs.kode-mono
     ];
 
     home-manager.users.arthurx = {config, pkgs, ...}: {
@@ -217,6 +221,10 @@ in {
             # starship
             ".config/starship.toml".source = "${dotfiles}/starship/starship.toml";
 
+            # tmux
+            "${config.home.homeDirectory}/.tmux.conf".source = "${config.home.homeDirectory}/.config/dotfiles/nix/tmux/tmux.conf";
+
+            # ~/settings
             "settings".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles";
         };
 
@@ -232,13 +240,8 @@ in {
                 custom-keybindings = [
                     "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
                     "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+                    "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
                 ];
-            };
-
-            "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-                name = "terminal";
-                command = "alacritty";
-                binding = "<Super>T";
             };
 
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
@@ -247,11 +250,18 @@ in {
                 binding = "<Shift><Super>S";
             };
 
+            "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+                name = "alacritty";
+                command = "${config.home.homeDirectory}/.config/dotfiles/nix/scripts/alacritty_focus_or_launch.sh";
+                binding = "<Super>T";
+            };
+
             "org/gnome/desktop/background" = {
                 picture-uri = "file:///home/arthurx/.config/background";
                 picture-uri-dark = "file:///home/arthurx/.config/background";
                 # picture-options = "zoom";  # optional: how to scale the wallpaper
             };
+
         };
 
         home.sessionVariables = {
