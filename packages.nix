@@ -24,7 +24,8 @@ in {
         pkgs.python3
         pkgs.python313Packages.pip
 
-        # === Rust ===
+        # # === Rust ===
+        pkgs.rustup
         pkgs.rustc
         pkgs.cargo
         pkgs.rust-analyzer
@@ -81,6 +82,7 @@ in {
         pkgs.vlc
         pkgs.cozy
         pkgs.onlyoffice-desktopeditors
+        pkgs.footage
 
         # === Gaming ===
         pkgs.lutris-unwrapped

@@ -29,6 +29,14 @@
     "buffer_font_family": "PixelCodeLigatureless Nerd Font",
     "tab_size": 4,
 
+    "lsp": {
+        "rust-analyzer": {
+            "binary": {
+                "path": "/run/current-system/sw/bin/rust-analyzer"
+            }
+        }
+    },
+
     "languages": {
         "Nix": {
             "enable_language_server": true

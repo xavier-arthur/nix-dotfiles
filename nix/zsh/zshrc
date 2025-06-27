@@ -58,10 +58,17 @@ export NIXPKGS_ALLOW_UNFREE=1
 # vim mode
 bindkey -v
 
+# Auto‑attach or create tmux only when launched from Alacritty
 if [[ -z "$TMUX" ]]; then
-  if tmux ls &>/dev/null; then
-    exec tmux attach-session
-  else
-    exec tmux new -s Default
+  # Find parent PID
+  parent_pid="$PPID"
+  # Get its command name
+  parent_cmd="$(< /proc/$parent_pid/comm 2>/dev/null || echo '')"
+  if [[ "$parent_cmd" == "alacritty" ]]; then
+    if tmux ls &>/dev/null; then
+      exec tmux attach-session
+    else
+      exec tmux new -s Default
+    fi
   fi
 fi

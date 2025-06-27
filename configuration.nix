@@ -6,6 +6,7 @@
 
 let
     dotfiles = /home/arthurx/.config/dotfiles/nix;
+    # linkDotfiles = pkgs.writeShellScriptBin "link-dotfiles" (builtins.readFile ./nix/activation_scripts/link_dotfiles.sh);
 in {
     imports = [
         /etc/nixos/hardware-configuration.nix
@@ -99,7 +100,7 @@ in {
     };
 
     programs.zsh = {
-        enable = true;
+        # enable = true;
         enableCompletion = true;
 
         # autosuggestions = {
@@ -229,7 +230,6 @@ in {
         };
 
         dconf.settings = {
-
             "org/gnome/desktop/wm/keybindings" = {
                 "show-desktop" = ["<Super>D"];
                 "move-to-monitor-left" = ["<Super><Shift>H"];
@@ -277,7 +277,11 @@ in {
     system.activationScripts.text = ''
         ln -sf ${pkgs.bash}/bin/bash /bin/bash
         ln -sf ${pkgs.bash}/bin/bash /usr/bin/bash
+
+        ln -sf ${pkgs.rust-analyzer}/bin/rust-analyzer /bin/rust-analyzer
+        ln -sf ${pkgs.rust-analyzer}/bin/rust-analyzer /usr/bin/rust-analyzer
     '';
+
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
