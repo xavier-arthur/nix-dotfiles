@@ -103,12 +103,12 @@ in {
         enable = true;
         enableCompletion = true;
 
-        # autosuggestions = {
-        #     enable = true;
-        #     highlightStyle = "fg=#d79921,bg=#1d2021,bold,underline";
-        #     strategy = ["completion"];
-        # };
-        #
+        autosuggestions = {
+            enable = true;
+            highlightStyle = "fg=#d79921,bg=#1d2021,bold,underline";
+            strategy = ["history"];
+        };
+
 
         syntaxHighlighting = {
             enable = true;

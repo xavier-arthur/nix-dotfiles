@@ -83,6 +83,7 @@ in {
         pkgs.cozy
         pkgs.onlyoffice-desktopeditors
         pkgs.footage
+        pkgs.gpick
 
         # === Gaming ===
         pkgs.lutris-unwrapped
