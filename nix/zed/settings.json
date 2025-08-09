@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+    "auto_update": false,
     "icon_theme": "Warm Charmed Icons",
     "project_panel": {
         "dock": "right"
@@ -21,6 +22,12 @@
     },
 
     "vim_mode": true,
+
+    "vim": {
+        "use_smartcase_find": true,
+        "use_system_clipboard": "never"
+    },
+
     "relative_line_numbers": true,
 
     "format_on_save": "off",
@@ -34,7 +41,33 @@
             "binary": {
                 "path": "/run/current-system/sw/bin/rust-analyzer"
             }
-        }
+        },
+
+        // "vue-language-server": {
+        //     "binary": {
+        //         "path": "/run/current-system/sw/bin/node",
+        //         "arguments": [
+        //             "/home/arthurx/.lsp/node_modules/.bin/vue-language-server",
+        //             "--stdio"
+        //         ]
+        //     }
+        // },
+
+        "deno": {
+            "settings": {
+                "deno": {
+                    "enable": true
+                }
+            }
+        },
+    },
+
+    "auto_install_extensions": {
+        "vue": false
+    },
+
+    "auto_update_extensions": {
+        "vue": false
     },
 
     "languages": {
@@ -52,12 +85,25 @@
         },
 
         "Vue.js": {
-            "use_autoclose": true
+            "language_servers": [
+                "vtsls",
+                "..."
+            ]
         },
 
         "Shell Script": {
             "tab_size": 2
+        },
+
+        "TypeScript": {
+            "language_servers": [
+                "deno",
+                "!typescript-language-server",
+                "!vtsls",
+                "!eslint"
+            ]
         }
+
     },
 
     "experimental.theme_overrides": {
@@ -66,6 +112,7 @@
         // "hint.border": null,
 
         "syntax": {
+
             "keyword": {
                 "color": "#E67E80",
                 "font_style": "italic"
@@ -73,6 +120,10 @@
 
             "tag": {
                 "color": "#E69875",
+            },
+
+            "constructor": {
+                "color": "#e5c07b"
             },
 
             "variable":  { "color": "#D3C6AA" },
@@ -138,5 +189,6 @@
         }
     },
 
-    "ensure_final_newline_on_save": false
+    "ensure_final_newline_on_save": false,
+    "hide_mouse": "never"
 }

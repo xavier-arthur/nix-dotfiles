@@ -66,6 +66,10 @@ style = "fg:#e78a4e"  # purple
 symbol = "sudo "
 style = "fg:#d3869b"  # purple
 
+[deno]
+symbol = "deno "
+style = "fg:#d3869b"  # purple
+
 [memory_usage]
 symbol = "memory "
 style = "fg:#e78a4e"  # orange

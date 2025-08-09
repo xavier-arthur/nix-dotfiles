@@ -14,7 +14,13 @@ in {
         <home-manager/nixos>
     ];
 
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
     networking.hostName = "nixos"; # Define your hostname.
+
+    nix.settings.trusted-substituters = [ "https://cache.nixos.org/" ];
+
+    boot.tmp.cleanOnBoot = true;
 
     # Enable networking
     networking.networkmanager.enable = true;
@@ -98,6 +104,12 @@ in {
     programs.steam = {
         enable = true;
     };
+
+    programs.gamemode = {
+        enable = true;
+    };
+
+    programs.nix-ld.enable = true;
 
     programs.zsh = {
         enable = true;

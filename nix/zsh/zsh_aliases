@@ -14,7 +14,7 @@ alias grep='rg'
 alias ls='eza'
 
 # rebuild nix
-alias update='sudo nixos-rebuild switch'
+alias update='sudo nixos-rebuild switch 2>&1 | nom'
 
 # download audio shortcut
 alias yt-audio='yt-dlp -x --audio-format mp3 --embed-thumbnail -o "%(title)s.%(ext)s" "$1"'

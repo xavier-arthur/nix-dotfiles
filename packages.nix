@@ -1,7 +1,14 @@
 { config, pkgs, ... }:
 
 let
-    unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+    # unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+
+    unstable = import (builtins.fetchTarball {
+       url = "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
+    }) {
+        config.allowUnfree = true;
+    };
+
 in {
     # pacotes
     environment.systemPackages = [
@@ -13,12 +20,15 @@ in {
         # === Development Tools ===
         pkgs.neovim
         pkgs.nodejs_24
+        pkgs.deno
         pkgs.git
         pkgs.gitui
         pkgs.gcc
     	pkgs.gnumake
         pkgs.redisinsight
-        unstable.zed-editor # unstable
+        pkgs.vscode-fhs
+        pkgs.texliveMedium
+        unstable.zed-editor-fhs
 
         # === Python ===
         pkgs.python3
@@ -40,6 +50,16 @@ in {
         pkgs.nil
 
         # === Terminal/CLI Tools ===
+        pkgs.typst
+        pkgs.sshuttle
+        pkgs.just
+        pkgs.macchina
+        pkgs.btop
+        pkgs.doctl
+        pkgs.nix-output-monitor
+        pkgs.tree
+        pkgs.ncmpcpp
+        pkgs.dust
         pkgs.alacritty
         pkgs.eza
         pkgs.fzf
@@ -54,13 +74,14 @@ in {
         pkgs.xclip
         pkgs.file
     	pkgs.jq
-        pkgs.yt-dlp
+        unstable.yt-dlp
         pkgs.ffmpeg
         pkgs.imagemagick
         pkgs.killall
         pkgs.cowsay
         pkgs.lolcat
         pkgs.wmctrl
+        pkgs.libwebp
 
         # === Zsh ===
         pkgs.zsh
@@ -69,15 +90,18 @@ in {
         pkgs.zsh-autosuggestions
 
         # === GUI Apps ===
+        pkgs.telegram-desktop
+        pkgs.resources
+        pkgs.anydesk
+        pkgs.filezilla
         pkgs.gimp3
         pkgs.brave
         pkgs.postman
-        pkgs.dbeaver-bin
+        unstable.dbeaver-bin
         pkgs.obs-studio
         pkgs.discord
         pkgs.flameshot
         pkgs.qbittorrent
-        pkgs.megasync
         pkgs.fontforge-gtk
         pkgs.vlc
         pkgs.cozy
@@ -86,6 +110,7 @@ in {
         pkgs.gpick
 
         # === Gaming ===
+        pkgs.gamemode
         pkgs.lutris-unwrapped
         pkgs.steam
         pkgs.prismlauncher

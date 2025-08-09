@@ -83,7 +83,7 @@
   },
 
   {
-    "context": "VimControl && !menu",
+    "context": "Workspace || (VimControl && !menu)",
     "bindings": {
         "ctrl-\\": "projects::OpenRecent"
     }
