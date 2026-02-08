@@ -43,6 +43,8 @@ in {
         LC_TIME = "pt_BR.UTF-8";
     };
 
+    services.timesyncd.enable = true;
+
     # Enable the X11 windowing system.
     services.xserver.enable = true;
 
@@ -152,7 +154,10 @@ in {
 
     fonts.packages = [
         pkgs.ibm-plex
+        pkgs.departure-mono
         pkgs.kode-mono
+        pkgs.victor-mono
+        pkgs.monaspace
     ];
 
     home-manager.users.arthurx = {config, pkgs, ...}: {
@@ -167,7 +172,7 @@ in {
 
         programs.git = {
             enable = true;
-            userEmail = "garok102gmail.com";
+            userEmail = "garok102@gmail.com";
             userName = "Arthur Xavier";
 
             extraConfig = {
@@ -253,6 +258,7 @@ in {
                     "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
                     "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
                     "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+                    "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
                 ];
             };
 
@@ -266,6 +272,12 @@ in {
                 name = "alacritty";
                 command = "${config.home.homeDirectory}/.config/dotfiles/nix/scripts/alacritty_focus_or_launch.sh";
                 binding = "<Super>T";
+            };
+
+            "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
+                name = "emoji";
+                command = "rofi -show emoji";
+                binding = "<Super>N";
             };
 
             "org/gnome/desktop/background" = {
@@ -307,6 +319,7 @@ in {
 
     # Enable the OpenSSH daemon.
     services.openssh.enable = true;
+    services.usbmuxd.enable =  true;
 
     # Open ports in the firewall.
     # networking.firewall.allowedTCPPorts = [ ... ];

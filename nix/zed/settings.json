@@ -12,8 +12,10 @@
     "project_panel": {
         "dock": "right"
     },
+
     "ui_font_size": 15,
     "buffer_font_size": 12,
+
     "theme": {
         "mode": "system",
         "light": "One Light",
@@ -28,12 +30,16 @@
         "use_system_clipboard": "never"
     },
 
-    "relative_line_numbers": true,
+    "relative_line_numbers": "enabled",
+    "disable_ai": true,
 
     "format_on_save": "off",
 
     "ui_font_family": "IBM Plex Mono",
-    "buffer_font_family": "PixelCodeLigatureless Nerd Font",
+    "buffer_font_family": "Departure Mono",
+
+    // "buffer_font_family": "PixelCodeLigatureless Nerd Font",
+
     "tab_size": 4,
 
     "lsp": {
@@ -53,13 +59,19 @@
         //     }
         // },
 
-        "deno": {
-            "settings": {
-                "deno": {
-                    "enable": true
-                }
+        "phpactor": {
+            "binary": {
+                "path": "/run/current-system/sw/bin/true"
             }
         },
+
+        // "deno": {
+        //     "settings": {
+        //         "deno": {
+        //             "enable": true
+        //         }
+        //     }
+        // },
     },
 
     "auto_install_extensions": {
@@ -81,7 +93,7 @@
 
         "PHP": {
             "enable_language_server": true,
-            "language_servers": ["intelephense", "!phpactor"]
+            "language_servers": ["intelephense", "!phpactor", "!phptools", "..."]
         },
 
         "Vue.js": {

@@ -16,29 +16,40 @@ in {
         # system packages as well as in fonts.packages, dunno why so I just add
         # them fonts here and in the aforementioned property
         pkgs.kode-mono
+        pkgs.monaspace
+        pkgs.departure-mono
 
         # === Development Tools ===
         pkgs.neovim
         pkgs.nodejs_24
         pkgs.deno
         pkgs.git
+        pkgs.wine
         pkgs.gitui
         pkgs.gcc
+        pkgs.appimage-run
+        pkgs.usbmuxd
+        pkgs.libimobiledevice
     	pkgs.gnumake
         pkgs.redisinsight
         pkgs.vscode-fhs
         pkgs.texliveMedium
+        pkgs.openssl
         unstable.zed-editor-fhs
+
+        # === Lua ===
+        pkgs.luarocks
+        pkgs.lua
 
         # === Python ===
         pkgs.python3
         pkgs.python313Packages.pip
 
         # # === Rust ===
-        pkgs.rustup
-        pkgs.rustc
-        pkgs.cargo
-        pkgs.rust-analyzer
+        # pkgs.rustup
+        unstable.rustc
+        unstable.cargo
+        unstable.rust-analyzer
 
         # === PHP ===
         pkgs.php84
@@ -51,6 +62,9 @@ in {
 
         # === Terminal/CLI Tools ===
         pkgs.typst
+        pkgs.cloudflare-cli
+        pkgs.cloudflared
+        pkgs.fuse
         pkgs.sshuttle
         pkgs.just
         pkgs.macchina
@@ -91,6 +105,10 @@ in {
 
         # === GUI Apps ===
         pkgs.telegram-desktop
+        pkgs.firefox
+        pkgs.google-chrome
+        pkgs.kdePackages.kdenlive
+        pkgs.inkscape
         pkgs.resources
         pkgs.anydesk
         pkgs.filezilla
