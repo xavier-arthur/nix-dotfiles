@@ -5,8 +5,13 @@
 { config, pkgs, lib, ... }:
 
 let
-    dotfiles = /home/arthurx/.config/dotfiles/nix;
+    dotfiles = "/home/arthurx/.config/dotfiles/nix";
     # linkDotfiles = pkgs.writeShellScriptBin "link-dotfiles" (builtins.readFile ./nix/activation_scripts/link_dotfiles.sh);
+    unstable = import (builtins.fetchTarball {
+       url = "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
+    }) {
+        config.allowUnfree = true;
+    };
 in {
     imports = [
         /etc/nixos/hardware-configuration.nix
@@ -45,6 +50,8 @@ in {
 
     services.timesyncd.enable = true;
 
+    services.atd.enable = true;
+
     # Enable the X11 windowing system.
     services.xserver.enable = true;
 
@@ -70,6 +77,7 @@ in {
         alsa.enable = true;
         alsa.support32Bit = true;
         pulse.enable = true;
+        wireplumber.enable = true;
         # If you want to use JACK applications, uncomment this
         #jack.enable = true;
 
@@ -105,6 +113,10 @@ in {
 
     programs.steam = {
         enable = true;
+        extraCompatPackages = [
+            # unstable.pkgs.pro
+            unstable.proton-ge-bin
+        ];
     };
 
     programs.gamemode = {
@@ -158,6 +170,7 @@ in {
         pkgs.kode-mono
         pkgs.victor-mono
         pkgs.monaspace
+        pkgs.pixel-code
     ];
 
     home-manager.users.arthurx = {config, pkgs, ...}: {
@@ -219,28 +232,28 @@ in {
 
         home.file = {
             # zsh
-            ".zshrc".source = "${dotfiles}/zsh/zshrc";
-            ".zsh_aliases".source = "${dotfiles}/zsh/zsh_aliases";
+            ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${toString dotfiles}/zsh/zshrc";
+            ".zsh_aliases".source = config.lib.file.mkOutOfStoreSymlink "${toString dotfiles}/zsh/zsh_aliases";
 
             # wallpaper gnome
-            ".config/background".source = "${dotfiles}/background";
+            ".config/background".source = config.lib.file.mkOutOfStoreSymlink "${toString dotfiles}/background";
 
             # zed
-            ".config/zed/settings.json".source = "${dotfiles}/zed/settings.json";
-            ".config/zed/keymap.json".source = "${dotfiles}/zed/keymap.json";
+            ".config/zed/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${toString dotfiles}/zed/settings.json";
+            ".config/zed/keymap.json".source = config.lib.file.mkOutOfStoreSymlink "${toString dotfiles}/zed/keymap.json";
 
             # fontes
-            ".local/share/fonts/PixelCodeLigatureLessRegular.otf".source = "${dotfiles}/fonts/PixelCodeLigatureLess-Regular.otf";
-            ".local/share/fonts/PixelCodeLigatureLessRegularItalic.otf".source = "${dotfiles}/fonts/PixelCodeLigatureLess-RegularItalic.otf";
+            ".local/share/fonts/PixelCodeLigatureLessRegular.otf".source = config.lib.file.mkOutOfStoreSymlink "${toString dotfiles}/fonts/PixelCodeLigatureLess-Regular.otf";
+            ".local/share/fonts/PixelCodeLigatureLessRegularItalic.otf".source = config.lib.file.mkOutOfStoreSymlink "${toString dotfiles}/fonts/PixelCodeLigatureLess-RegularItalic.otf";
 
             # alacritty
-            ".config/alacritty.toml".source = "${dotfiles}/alacritty/alacritty.toml";
+            ".config/alacritty.toml".source = config.lib.file.mkOutOfStoreSymlink "${toString dotfiles}/alacritty/alacritty.toml";
 
             # starship
-            ".config/starship.toml".source = "${dotfiles}/starship/starship.toml";
+            ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${toString dotfiles}/starship/starship.toml";
 
             # tmux
-            "${config.home.homeDirectory}/.tmux.conf".source = "${config.home.homeDirectory}/.config/dotfiles/nix/tmux/tmux.conf";
+            "${config.home.homeDirectory}/.tmux.conf".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/nix/tmux/tmux.conf";
 
             # ~/settings
             "settings".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles";

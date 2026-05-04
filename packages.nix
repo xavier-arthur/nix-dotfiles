@@ -19,6 +19,9 @@ in {
         pkgs.monaspace
         pkgs.departure-mono
 
+        # === AI === #
+        unstable.claude-code
+
         # === Development Tools ===
         pkgs.neovim
         pkgs.nodejs_24
@@ -46,10 +49,10 @@ in {
         pkgs.python313Packages.pip
 
         # # === Rust ===
-        # pkgs.rustup
-        unstable.rustc
-        unstable.cargo
-        unstable.rust-analyzer
+         unstable.rustc
+         unstable.cargo
+         unstable.rust-analyzer
+         # unstable.rustup
 
         # === PHP ===
         pkgs.php84
@@ -72,6 +75,9 @@ in {
         pkgs.doctl
         pkgs.nix-output-monitor
         pkgs.tree
+        pkgs.ncmpcpp
+        pkgs.mpd
+        pkgs.termusic
         pkgs.ncmpcpp
         pkgs.dust
         pkgs.alacritty
@@ -105,8 +111,11 @@ in {
 
         # === GUI Apps ===
         pkgs.telegram-desktop
-        pkgs.firefox
         pkgs.google-chrome
+        pkgs.kdePackages.kdeconnect-kde
+        pkgs.firefox
+        pkgs.localsend
+        pkgs.easyeffects
         pkgs.kdePackages.kdenlive
         pkgs.inkscape
         pkgs.resources
@@ -131,11 +140,13 @@ in {
         pkgs.gamemode
         pkgs.lutris-unwrapped
         pkgs.steam
+        pkgs.protonup-qt
         pkgs.prismlauncher
 
         # === System Appearance ===
         pkgs.gruvbox-gtk-theme
         pkgs.gnome-tweaks
+        pkgs.gnomeExtensions.gsconnect
         pkgs.gnomeExtensions.rounded-corners
         pkgs.gnomeExtensions.blur-my-shell
 
@@ -144,6 +155,7 @@ in {
         pkgs.ctop
         pkgs.bash
         pkgs.freshfetch
+        pkgs.pulseaudioFull
 
         # === Database ===
         pkgs.mariadb
