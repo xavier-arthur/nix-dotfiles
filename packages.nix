@@ -24,7 +24,7 @@ in {
 
         # === Development Tools ===
         pkgs.neovim
-        pkgs.nodejs_24
+        pkgs.nodejs
         pkgs.deno
         pkgs.git
         pkgs.wine
@@ -34,7 +34,7 @@ in {
         pkgs.usbmuxd
         pkgs.libimobiledevice
     	pkgs.gnumake
-        pkgs.redisinsight
+        # pkgs.redisinsight
         pkgs.vscode-fhs
         pkgs.texliveMedium
         pkgs.openssl
@@ -65,9 +65,13 @@ in {
 
         # === Terminal/CLI Tools ===
         pkgs.typst
+        pkgs.github-cli
         pkgs.cloudflare-cli
+        pkgs.guake
+        pkgs.s3cmd
         pkgs.cloudflared
         pkgs.fuse
+        pkgs.solaar
         pkgs.sshuttle
         pkgs.just
         pkgs.macchina
@@ -111,6 +115,7 @@ in {
 
         # === GUI Apps ===
         pkgs.telegram-desktop
+        pkgs.gradia
         pkgs.google-chrome
         pkgs.kdePackages.kdeconnect-kde
         pkgs.firefox

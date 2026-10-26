@@ -1,7 +1,12 @@
 {
+    "cli_default_open_behavior": "existing_window",
+    "diff_view_style": "split",
     "outline_panel": {
         "dock": "left"
     },
+
+    "selection_highlight": false,
+
     "collaboration_panel": {
         "dock": "left"
     },
@@ -10,6 +15,10 @@
     },
     "agent_servers": {
         "claude-acp": {
+            "default_config_options": {
+                "fast": false,
+                "mode": "plan"
+            },
             "type": "registry"
         }
     },
@@ -108,8 +117,14 @@
             "tab_size": 2
         },
 
+        "Docker Compose": {
+            "tab_size": 2
+        },
+
         "PHP": {
             "enable_language_server": true,
+            "use_on_type_format": false,
+            "linked_edits": false,
             "language_servers": ["intelephense", "!phpactor", "!phptools", "..."]
         },
 
@@ -142,13 +157,13 @@
 
             "syntax": {
                 "keyword": {
-                    "color": "#E67E80",
+                    // "color": "#E67E80",
                     "font_style": "italic"
                 },
 
-                "tag": {
-                    "color": "#E69875",
-                },
+                // "tag": {
+                //     "color": "#E69875",
+                // },
 
                 "tag.component.type.constructor": {
                     "color": "#e5c07b"

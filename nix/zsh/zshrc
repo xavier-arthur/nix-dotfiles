@@ -1,6 +1,3 @@
-# alias
-source "$HOME/.zsh_aliases"
-
 # prompt
 eval "$(starship init zsh)"
 

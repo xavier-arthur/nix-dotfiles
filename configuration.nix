@@ -48,6 +48,8 @@ in {
         LC_TIME = "pt_BR.UTF-8";
     };
 
+    programs.appimage.enable = true;
+
     services.timesyncd.enable = true;
 
     services.atd.enable = true;
@@ -179,7 +181,15 @@ in {
         home.username = "arthurx";
         home.homeDirectory = "/home/arthurx";
 
-        programs.zsh.enable = true;
+        programs.zsh = {
+            enable = true;
+
+            initContent = ''
+                source ~/.config/dotfiles/nix/zsh/zshrc
+                source ~/.config/dotfiles/nix/zsh/zsh_aliases
+            '';
+        };
+
         programs.bash.enable = true;
         targets.genericLinux.enable = true;
 
@@ -232,8 +242,8 @@ in {
 
         home.file = {
             # zsh
-            ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${toString dotfiles}/zsh/zshrc";
-            ".zsh_aliases".source = config.lib.file.mkOutOfStoreSymlink "${toString dotfiles}/zsh/zsh_aliases";
+            # ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${toString dotfiles}/zsh/zshrc";
+            # ".zsh_aliases".source = config.lib.file.mkOutOfStoreSymlink "${toString dotfiles}/zsh/zsh_aliases";
 
             # wallpaper gnome
             ".config/background".source = config.lib.file.mkOutOfStoreSymlink "${toString dotfiles}/background";
@@ -277,13 +287,14 @@ in {
 
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
                 name = "flameshot";
-                command = "flameshot gui";
+                # command = "flameshot gui";
+                command = "gradia --screenshot";
                 binding = "<Shift><Super>S";
             };
 
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
                 name = "alacritty";
-                command = "${config.home.homeDirectory}/.config/dotfiles/nix/scripts/alacritty_focus_or_launch.sh";
+                command = "alacritty";
                 binding = "<Super>T";
             };
 
